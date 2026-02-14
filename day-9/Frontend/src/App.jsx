@@ -68,7 +68,7 @@ function App() {
 
   return (
     <>
-      {/* CREATE NOTE FORM */}
+       {/* CREATE NOTE FORM  */}
       <form className="note-create-form" onSubmit={submitHandle}>
         <input name="title" type="text" placeholder="Enter Title" required />
         <textarea
