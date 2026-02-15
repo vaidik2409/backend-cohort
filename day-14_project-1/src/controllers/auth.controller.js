@@ -37,7 +37,7 @@ async function registerController(req,res){
     }
 
     const hash = crypto.createHash("sha256").update(password).digest("hex")
-    const user = new userModel.create({
+    const user = await userModel.create({
         username,
         email,
         password:hash,
@@ -93,7 +93,7 @@ async function loginController(req,res){
         id:user._id
     },process.env.JWT_SECRET,
     {expiresIn:"1d"})
-
+    
     res.cookie("token",token)
 
     res.status(200).json({
@@ -108,8 +108,7 @@ async function loginController(req,res){
 
 }
 
-
-module.exorts ={
+module.exports ={
     registerController,
     loginController
-}
+}   
